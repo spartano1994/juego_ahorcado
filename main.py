@@ -1,26 +1,28 @@
-import random as rn
-import time
+
+
+
+from src.screen import *
+from src.words import *
+
 
 def run():
-    nivel = menu()
+    entrar = True
+    portada()
+
+    while entrar :
+        opcion = menu()
+
+        if opcion == 4 :
+            break
+    
+        
 
 
-def importar_palabras( nivel ):
-    return []
-
-def seleccionar_palabra():
-    return
+        pass
 
 def menu():
     pass
 
-class PalabraSecreta( object ) :
-    def __init__( self  , palabra , palabra_oculta ):
-        palabra.self = palabra
-        palabra_oculta.self = __cubrir_palabra()
-
-    def __cubrir_palabra( self ) :
-        pass
 
 if __name__ == "__main__":
     run()
