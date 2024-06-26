@@ -41,10 +41,57 @@ def portada():
                     "       ##     ## ##     ##  #######  ##     ##  ######  ##     ## ########   #######  ",
                     "\n\n\n\n" ]
     
-    impresion_barrida( lista = texto_bienvenido , borrar = True , espera_final = 1.5 )
-    impresion_barrida( titulo_juego, espera_final = 3)
+    os.system( "cls" )
+    impresion_barrida( lista = texto_bienvenido , borrar = True , espera_final = 1 )
+    impresion_barrida( titulo_juego, espera_final = 1.5 )
+    input( "\t\t\t\t\tPresiona enter\t\t" )
+    os.system( "cls" )
 
 
+def pantalla_menu( dificultad = "Fácil"):
+    menu_principal = [ "Selecciona una opción:" ,
+                      "\t1.-Jugar" ,
+                      f"\t2.-Dificultad ( {dificultad} )" ,
+                      "\t3.-Puntuaciones" ,
+                      "\t4.-Acerca de" ,
+                      "\t5.-Salir"]
+    
+    while True :
+        impresion_barrida( menu_principal , tiempo_transicion = 0 )
+
+        try:
+            opcion = int( input( "\tOpción: " ) )
+            return opcion
+        except:
+            print( "Debes digitar un número, intenta de nuevo" )
+            
+        time.sleep( 1.5 )
+        os.system( "cls" )
+
+
+def pantalla_dificultad():
+        menu_dificultad = [ "Selecciona el nivel de dificultad:" ,
+                      "\t1.-Muy Fácil" ,
+                      f"\t2.- Fácil" ,
+                      "\t3.-Normal" ,
+                      "\t4.-Dificil" ,
+                      "\t5.-Maestro" ]
+        
+        impresion_barrida( menu_dificultad , tiempo_transicion = 0 )
+
+        
+
+
+def pantalla_puntuacion():
+    pass
+
+
+def pantalla_acerca_de():
+    pass
+
+
+def pantalla_salida():
+    pass
 
 if __name__ == "__main__":
     pass

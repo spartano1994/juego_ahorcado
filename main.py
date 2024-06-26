@@ -4,24 +4,32 @@
 from src.screen import *
 from src.words import *
 
+def jugar():
+    palabra = seleccionar_palabra()
+    
 
 def run():
-    entrar = True
+
     portada()
 
-    while entrar :
-        opcion = menu()
+    dificultad = "Fácil"
+    importar_palabras( dificultad ) 
 
-        if opcion == 4 :
+    while True :
+        opcion = pantalla_menu( dificultad )
+
+        if opcion == 1 :
+            jugar() 
+        elif opcion == 2:
+            dificultad = pantalla_dificultad()
+            importar_palabras( dificultad ) 
+        elif opcion == 3:
+            pantalla_puntuacion()
+        elif opcion == 4:
+            pantalla_acerca_de()
+        else:
+            pantalla_salida()
             break
-    
-        
-
-
-        pass
-
-def menu():
-    pass
 
 
 if __name__ == "__main__":

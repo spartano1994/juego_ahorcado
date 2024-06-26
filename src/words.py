@@ -1,9 +1,40 @@
 
 import random as rn
+import csv
+import time
+import os
+import pathlib
+import pandas as pd
 
+def quitar_acentos( palabra ) :
+    palabra = palabra.replace( "á" , "a" )
+    palabra = palabra.replace( "é" , "e" )
+    palabra = palabra.replace( "í" , "i" )
+    palabra = palabra.replace( "ó" , "o" )
+    palabra = palabra.replace( "ú" , "u" )
+
+    return palabra
 
 def importar_palabras( nivel ):
-    return []
+
+    archivo_texto = quitar_acentos( nivel.lower() + ".csv" )
+
+    path = pathlib.Path( "./dictionary/" + archivo_texto )
+
+    if os.path.exists( path ):
+        df 
+
+
+    else:
+        data = [ [ "Muy Fácil" , "Fácil" , "Normal" , "Dificil" , "Maestro" ] ,
+                [ 1 , 2 , 3 , 4 , 5 ] ]
+        
+        with open( path , mode = "w" , encoding = "utf8" ) as archivo :
+            writer = csv.writer( archivo )
+
+            for row in data :
+	            writer.writerow( row )
+
 
 def seleccionar_palabra():
     return
