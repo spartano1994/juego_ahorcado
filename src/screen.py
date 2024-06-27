@@ -54,7 +54,7 @@ def pantalla_menu( dificultad = "Fácil"):
                       f"\t2.-Dificultad ( {dificultad} )" ,
                       "\t3.-Puntuaciones" ,
                       "\t4.-Acerca de" ,
-                      "\t5.-Salir"]
+                      "\t5.-Salir del juego"]
     
     while True :
         impresion_barrida( menu_principal , tiempo_transicion = 0 )
@@ -63,7 +63,7 @@ def pantalla_menu( dificultad = "Fácil"):
             opcion = int( input( "\tOpción: " ) )
             return opcion
         except:
-            print( "Debes digitar un número, intenta de nuevo" )
+            print( "Debes digitar una opción válida, intenta de nuevo..." )
             
         time.sleep( 1.5 )
         os.system( "cls" )
@@ -72,7 +72,7 @@ def pantalla_menu( dificultad = "Fácil"):
 def pantalla_dificultad():
         menu_dificultad = [ "Selecciona el nivel de dificultad:" ,
                       "\t1.-Muy Fácil" ,
-                      f"\t2.- Fácil" ,
+                      f"\t2.-Fácil" ,
                       "\t3.-Normal" ,
                       "\t4.-Dificil" ,
                       "\t5.-Maestro" ]

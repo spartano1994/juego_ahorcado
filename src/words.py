@@ -1,9 +1,9 @@
 
-import random as rn
 import csv
 import time
 import os
 import pathlib
+import numpy as np
 import pandas as pd
 
 def quitar_acentos( palabra ) :
@@ -16,28 +16,30 @@ def quitar_acentos( palabra ) :
     return palabra
 
 def importar_palabras( nivel ):
-
     archivo_texto = quitar_acentos( nivel.lower() + ".csv" )
 
     path = pathlib.Path( "./dictionary/" + archivo_texto )
 
     if os.path.exists( path ):
-        df 
+        df = pd.read_csv( path , encoding = "utf8")
+        palabras_del_nivel = df[ nivel ]
 
+        return palabras_del_nivel
 
-    else:
+    else:#pendiente
         data = [ [ "Muy Fácil" , "Fácil" , "Normal" , "Dificil" , "Maestro" ] ,
                 [ 1 , 2 , 3 , 4 , 5 ] ]
         
-        with open( path , mode = "w" , encoding = "utf8" ) as archivo :
+        with open( path , mode = "w" , encoding = "utf8" , newline = "" ) as archivo :
             writer = csv.writer( archivo )
 
             for row in data :
 	            writer.writerow( row )
 
 
-def seleccionar_palabra():
-    return
+def seleccionar_palabra( palabras ):
+    palabra_elegida = np.random.choice( palabras )
+    print( palabra_elegida )
 
 
 class PalabraSecreta( object ) :
@@ -46,7 +48,7 @@ class PalabraSecreta( object ) :
         self.palabra_oculta = self.cubrir_palabra( self.__palabra )
 
     def cubrir_palabra( self , palabra ) :
-        cadena_oculta = "".join( [ "_" for letra in palabra ] )
+        cadena_oculta = "".join( [ "_" for _ in palabra ] )
         return cadena_oculta
 
     def descubrir_letra( self , letra = "" ) :
@@ -59,8 +61,8 @@ class PalabraSecreta( object ) :
         longitud_palabra = len( cadena )
 
         for i in range( longitud_palabra ) :
-            if cadena[ i ] == letra :
-                nueva_palabra_oculta += letra
+            if cadena[ i ] == letra[ 0 ] :
+                nueva_palabra_oculta += letra[ 0 ]
             else :
                 nueva_palabra_oculta +=  self.palabra_oculta[ i ]
                 
